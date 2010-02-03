@@ -1,6 +1,23 @@
 require 'rubygems'
 require 'rake'
 
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |gem|
+    gem.name = "validates_url_format_of"
+    gem.summary = %Q{ActiveRecord URL Validation}
+    gem.description = %Q{Rails plugin that provides a validates_url_format_of method to ActiveRecord models. URLs are validated by regexp.}
+    gem.email = "conickal@gmail.com"
+    gem.homepage = "http://github.com/conickal/validates_url_format_of"
+    gem.authors = ["Henrik Nyh", "Josh Nichols", "Nicholas Silva"]
+    gem.add_dependency('activerecord', '>= 2.3.4')
+    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"    
+  end
+  Jeweler::GemcutterTasks.new  
+rescue LoadError
+  puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
+end
+
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
