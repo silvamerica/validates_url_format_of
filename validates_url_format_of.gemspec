@@ -22,7 +22,8 @@ Gem::Specification.new do |s|
     "init.rb",
     "lib/validates_url_format_of.rb",
     "shoulda_macros/validates_url_format_of_macros.rb",
-    "test/validates_url_format_of_test.rb"
+    "test/validates_url_format_of_test.rb",
+    "validates_url_format_of.gemspec"
   ]
   s.homepage = %q{http://github.com/conickal/validates_url_format_of}
   s.require_paths = ["lib"]
