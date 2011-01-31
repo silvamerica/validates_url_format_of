@@ -10,7 +10,7 @@ begin
     gem.email = "conickal@gmail.com"
     gem.homepage = "http://github.com/conickal/validates_url_format_of"
     gem.authors = ["Henrik Nyh", "Josh Nichols", "Nicholas Silva"]
-    gem.add_dependency('activerecord', '>= 2.3.4')
+    gem.add_dependency('activerecord', '~> 2.3.4')
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"    
   end
   Jeweler::GemcutterTasks.new  
