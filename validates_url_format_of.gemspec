@@ -3,7 +3,6 @@
 Gem::Specification.new do |gem|
   gem.add_dependency 'activerecord', '~> 2.3.4'
   gem.add_development_dependency 'rake', '~> 0.9'
-  gem.add_development_dependency 'rcov', '~> 0.9'
   gem.add_development_dependency 'shoulda', '~> 2.11'
   gem.add_development_dependency 'sqlite3', '~> 1.3'
   gem.authors = ["Erik-Michels-Ober", "Henrik Nyh", "Josh Nichols", "Nicholas Silva"]
