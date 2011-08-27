@@ -32,7 +32,7 @@ class ValidatesUrlFormatOfTest < MiniTest::Unit::TestCase
     ].each do |url|
       @model.homepage = url
       @model.save
-      assert !@model.errors.on(:homepage), "#{url.inspect} should have been accepted"
+      assert @model.errors[:homepage].empty?, "#{url.inspect} should have been accepted"
     end
   end
 
@@ -54,7 +54,7 @@ class ValidatesUrlFormatOfTest < MiniTest::Unit::TestCase
     ].each do |url|
       @model.homepage = url
       @model.save
-      assert @model.errors.on(:homepage), "#{url.inspect} should have been rejected"
+      assert @model.errors[:homepage], "#{url.inspect} should have been rejected"
     end
   end
 
@@ -62,14 +62,14 @@ class ValidatesUrlFormatOfTest < MiniTest::Unit::TestCase
     @model.homepage = 'x'
     @model.my_UrL_hooray = 'x'
     @model.save
-    assert_equal ValidatesUrlFormatOf::DEFAULT_MESSAGE, @model.errors.on(:homepage)
-    assert_equal ValidatesUrlFormatOf::DEFAULT_MESSAGE_URL, @model.errors.on(:my_UrL_hooray)
+    assert_equal ValidatesUrlFormatOf::DEFAULT_MESSAGE, @model.errors[:homepage].first
+    assert_equal ValidatesUrlFormatOf::DEFAULT_MESSAGE_URL, @model.errors[:my_UrL_hooray].first
   end
 
   def test_can_override_defaults
     @model.custom_url = 'x'
     @model.save
-    assert_equal 'custom message', @model.errors.on(:custom_url)
+    assert_equal 'custom message', @model.errors[:custom_url].first
   end
 
 end
