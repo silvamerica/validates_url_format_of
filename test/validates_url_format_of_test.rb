@@ -1,29 +1,6 @@
-# encoding: utf-8
+require File.expand_path('../helper', __FILE__)
 
-require 'rubygems'
-require 'test/unit'
-require 'active_record'
-require "#{File.dirname(__FILE__)}/../init"
-
-ActiveRecord::Base.establish_connection(
-  :adapter  => 'sqlite3',
-  :database => ':memory:')
-
-ActiveRecord::Schema.define(:version => 0) do
-  create_table :models, :force => true do |t|
-    t.string :homepage
-    t.string :my_UrL_hooray
-    t.string :custom_url
-  end
-end
-
-class Model < ActiveRecord::Base
-  validates_url_format_of :homepage
-  validates_url_format_of :my_UrL_hooray
-  validates_url_format_of :custom_url, :message => 'custom message'
-end
-
-class ValidatesUrlFormatOfTest < Test::Unit::TestCase
+class ValidatesUrlFormatOfTest < MiniTest::Unit::TestCase
 
   def setup
     @model = Model.new
@@ -43,15 +20,14 @@ class ValidatesUrlFormatOfTest < Test::Unit::TestCase
       'http://user:pass@example.com',
       'http://user:@example.com',
       'http://example.com/~user',
-      'http://example.xy',  # Not a real TLD, but we're fine with anything of 2-6 chars
+      'http://example.xy', # Not a real TLD, but we're fine with anything of 2-6 chars
       'http://example.museum',
       'http://1.0.255.249',
       'http://1.2.3.4:80',
       'HttP://example.com',
       'https://example.com',
-      'http://räksmörgås.nu',  # IDN
-      'http://xn--rksmrgs-5wao1o.nu',  # Punycode
-      'http://example.com.',  # Explicit TLD root period
+      'http://xn--rksmrgs-5wao1o.nu', # Punycode
+      'http://example.com.', # Explicit TLD root period
       'http://example.com./foo'
     ].each do |url|
       @model.homepage = url
@@ -86,7 +62,6 @@ class ValidatesUrlFormatOfTest < Test::Unit::TestCase
     @model.homepage = 'x'
     @model.my_UrL_hooray = 'x'
     @model.save
-    assert_not_equal ValidatesUrlFormatOf::DEFAULT_MESSAGE, ValidatesUrlFormatOf::DEFAULT_MESSAGE_URL
     assert_equal ValidatesUrlFormatOf::DEFAULT_MESSAGE, @model.errors.on(:homepage)
     assert_equal ValidatesUrlFormatOf::DEFAULT_MESSAGE_URL, @model.errors.on(:my_UrL_hooray)
   end

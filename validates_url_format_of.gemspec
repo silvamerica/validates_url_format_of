@@ -2,9 +2,9 @@
 
 Gem::Specification.new do |gem|
   gem.add_dependency 'activerecord', '~> 2.3.4'
+  gem.add_development_dependency 'minitest', '~> 2.5'
   gem.add_development_dependency 'rake', '~> 0.9'
   gem.add_development_dependency 'rdiscount', '~> 1.6'
-  gem.add_development_dependency 'shoulda', '~> 2.11'
   gem.add_development_dependency 'sqlite3', '~> 1.3'
   gem.add_development_dependency 'yard', '~> 0.7'
   gem.authors = ["Erik-Michels-Ober", "Henrik Nyh", "Josh Nichols", "Nicholas Silva"]
