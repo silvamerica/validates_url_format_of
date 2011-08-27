@@ -12,10 +12,8 @@ end
 
 task :default => :test
 
-require 'rdoc/task'
-Rake::RDocTask.new do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "validates_url_format_of"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
+require 'yard'
+YARD::Rake::YardocTask.new do |task|
+  task.files   = ['LICENSE.md', 'lib/**/*.rb']
+  task.options = ['--markup', 'markdown']
 end
