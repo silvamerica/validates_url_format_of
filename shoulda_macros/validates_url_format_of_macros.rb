@@ -1,7 +1,7 @@
 # encoding: utf-8
 class Test::Unit::TestCase
   def self.should_validate_url_format_of(attribute, options = {})
-    should_allow_values_for attribute, 
+    should_allow_values_for attribute,
       'http://example.com',
       'http://example.com/',
       'http://www.example.com/',

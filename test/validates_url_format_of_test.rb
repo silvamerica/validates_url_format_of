@@ -24,11 +24,11 @@ class Model < ActiveRecord::Base
 end
 
 class ValidatesUrlFormatOfTest < Test::Unit::TestCase
-  
+
   def setup
     @model = Model.new
   end
-  
+
   def test_should_allow_valid_urls
     [
       'http://example.com',
@@ -59,7 +59,7 @@ class ValidatesUrlFormatOfTest < Test::Unit::TestCase
       assert !@model.errors.on(:homepage), "#{url.inspect} should have been accepted"
     end
   end
-  
+
   def test_should_reject_invalid_urls
     [
       nil, 1, "", " ", "url",
@@ -69,7 +69,7 @@ class ValidatesUrlFormatOfTest < Test::Unit::TestCase
       'http://256.0.0.1',
       'http://u:u:u@example.com',
       'http://r?ksmorgas.com',
-      
+
       # These can all be valid local URLs, but should not be considered valid
       # for public consumption.
       "http://example",
@@ -81,7 +81,7 @@ class ValidatesUrlFormatOfTest < Test::Unit::TestCase
       assert @model.errors.on(:homepage), "#{url.inspect} should have been rejected"
     end
   end
-  
+
   def test_different_defaults_based_on_attribute_name
     @model.homepage = 'x'
     @model.my_UrL_hooray = 'x'
@@ -90,11 +90,11 @@ class ValidatesUrlFormatOfTest < Test::Unit::TestCase
     assert_equal ValidatesUrlFormatOf::DEFAULT_MESSAGE, @model.errors.on(:homepage)
     assert_equal ValidatesUrlFormatOf::DEFAULT_MESSAGE_URL, @model.errors.on(:my_UrL_hooray)
   end
-  
+
   def test_can_override_defaults
     @model.custom_url = 'x'
     @model.save
     assert_equal 'custom message', @model.errors.on(:custom_url)
   end
-  
+
 end
