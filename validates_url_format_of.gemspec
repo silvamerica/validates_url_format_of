@@ -17,5 +17,5 @@ Gem::Specification.new do |gem|
   gem.required_rubygems_version = Gem::Requirement.new('>= 1.3.6')
   gem.summary = %q{ActiveRecord URL Validation}
   gem.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
-  gem.version = '0.1.3'
+  gem.version = '0.2.0'
 end
