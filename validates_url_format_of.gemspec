@@ -1,13 +1,13 @@
 # encoding: utf-8
 
 Gem::Specification.new do |gem|
-  gem.add_dependency 'activerecord', '~> 3.1.0'
-  gem.add_development_dependency 'minitest', '~> 2.5'
-  gem.add_development_dependency 'rake', '~> 0.9'
-  gem.add_development_dependency 'rdiscount', '~> 1.6'
-  gem.add_development_dependency 'simplecov', '~> 0.4'
-  gem.add_development_dependency 'sqlite3', '~> 1.3'
-  gem.add_development_dependency 'yard', '~> 0.7'
+  gem.add_dependency 'activerecord', '~> 3.1'
+  gem.add_development_dependency 'minitest'
+  gem.add_development_dependency 'rake'
+  gem.add_development_dependency 'rdiscount'
+  gem.add_development_dependency 'simplecov'
+  gem.add_development_dependency 'sqlite3'
+  gem.add_development_dependency 'yard'
   gem.authors = ["Erik-Michels-Ober", "Henrik Nyh", "Josh Nichols", "Nicholas Silva"]
   gem.description = %q{Rails plugin that provides a validates_url_format_of method to ActiveRecord models. URLs are validated by regexp.}
   gem.email = 'conickal@gmail.com'
