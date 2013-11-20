@@ -14,5 +14,5 @@ Gem::Specification.new do |spec|
   spec.required_rubygems_version = '>= 1.3.5'
   spec.summary = %q{ActiveRecord URL Validation}
   spec.test_files = Dir.glob("test/**/*")
-  spec.version = '0.3.0'
+  spec.version = '0.4.0'
 end
