@@ -1,4 +1,7 @@
 # validates\_url\_format\_of
+
+[![Build Status](https://travis-ci.org/conickal/validates_url_format_of.png?branch=master)](https://travis-ci.org/conickal/validates_url_format_of)
+
 Rails plugin that provides a `validates_url_format_of` method to `ActiveRecord` models. URLs are validated by regexp.
 
 ## Usage
