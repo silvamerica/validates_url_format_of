@@ -1,5 +1,5 @@
 Gem::Specification.new do |spec|
-  spec.add_dependency 'activerecord', '~> 3.1'
+  spec.add_dependency 'activerecord', ['>= 3.1', '< 5']
   spec.add_development_dependency 'bundler', '~> 1.0'
   spec.authors = ["Erik-Michels-Ober", "Henrik Nyh", "Josh Nichols", "Nicholas Silva"]
   spec.description = %q{Rails plugin that provides a validates_url_format_of method to ActiveRecord models. URLs are validated by regexp.}
