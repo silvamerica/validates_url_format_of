@@ -5,9 +5,7 @@ SimpleCov.start
 require 'validates_url_format_of'
 require 'active_record'
 require 'model'
-require 'minitest/unit'
-
-MiniTest::Unit.autorun
+require 'minitest/autorun'
 
 unless ActiveRecord::Base.connected?
   ActiveRecord::Base.establish_connection(:adapter => 'sqlite3', :database => ':memory:')

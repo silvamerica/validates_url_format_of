@@ -4,6 +4,8 @@ gem 'maruku'
 gem 'rake'
 gem 'yard'
 
+gem 'activesupport', '~> 4.0'
+
 platforms :jruby do
   gem 'activerecord-jdbcsqlite3-adapter'
   gem 'jdbc-sqlite3'
@@ -22,4 +24,4 @@ platforms :rbx do
   gem 'rubysl-json', '~> 2.0'
 end
 
-gemspec
+gemspec :path => '../'

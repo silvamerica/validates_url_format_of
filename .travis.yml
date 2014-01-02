@@ -1,10 +1,30 @@
+before_install:
+  - gem update bundler
+  - bundle --version
+  - gem update --system 2.1.11
+  - gem --version
 language: ruby
+gemfile:
+  - gemfiles/activesupport3.rb
+  - gemfiles/activesupport4.rb
 rvm:
-  - jruby-19mode
-  - rbx-19mode
+  - 1.8.7
   - 1.9.3
   - 2.0.0
+  - 2.1.0
+  - jruby-18mode
+  - jruby-19mode
+  - jruby-head
+  - rbx
   - ruby-head
 matrix:
+  exclude:
+    - rvm: 1.8.7
+      gemfile: gemfiles/activesupport4.rb
+    - rvm: jruby-18mode
+      gemfile: gemfiles/activesupport4.rb
   allow_failures:
     - rvm: ruby-head
+    - rvm: jruby-head
+    - rvm: rbx
+  fast_finish: true
