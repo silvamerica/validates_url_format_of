@@ -10,12 +10,6 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = true
 end
 
-require 'yard'
-YARD::Rake::YardocTask.new do |task|
-  task.files   = %w[LICENSE.md lib/**/*.rb]
-  task.options = %w[--markup markdown]
-end
-
 begin
   require 'rubocop/rake_task'
   Rubocop::RakeTask.new
@@ -25,4 +19,20 @@ rescue LoadError
   end
 end
 
-task :default => [:test, :rubocop]
+require 'yard'
+YARD::Rake::YardocTask.new do |task|
+  task.files   = %w[LICENSE.md lib/**/*.rb]
+  task.options = %w[--markup markdown]
+end
+
+require 'yardstick/rake/measurement'
+Yardstick::Rake::Measurement.new do |measurement|
+  measurement.output = 'measurement/report.txt'
+end
+
+require 'yardstick/rake/verify'
+Yardstick::Rake::Verify.new do |verify|
+  verify.threshold = 50.0
+end
+
+task :default => [:test, :rubocop, :verify_measurements]
