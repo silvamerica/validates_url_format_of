@@ -12,6 +12,7 @@ end
 
 group :test do
   gem 'minitest'
+  gem 'rubocop', '>= 0.16', :platforms => [:ruby_19, :ruby_20, :ruby_21]
   gem 'simplecov', :require => false
   gem 'sqlite3', :platforms => :ruby
 end

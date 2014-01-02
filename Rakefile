@@ -10,10 +10,19 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = true
 end
 
-task :default => :test
-
 require 'yard'
 YARD::Rake::YardocTask.new do |task|
-  task.files   = ['LICENSE.md', 'lib/**/*.rb']
-  task.options = ['--markup', 'markdown']
+  task.files   = %w[LICENSE.md lib/**/*.rb]
+  task.options = %w[--markup markdown]
 end
+
+begin
+  require 'rubocop/rake_task'
+  Rubocop::RakeTask.new
+rescue LoadError
+  task :rubocop do
+    $stderr.puts 'Rubocop is disabled'
+  end
+end
+
+task :default => [:test, :rubocop]
