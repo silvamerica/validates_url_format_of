@@ -1,7 +1,10 @@
 $LOAD_PATH.unshift File.expand_path('..', __FILE__)
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+  add_filter '/spec/'
+  minimum_coverage(100)
+end
 require 'validates_url_format_of'
 require 'active_record'
 require 'model'
