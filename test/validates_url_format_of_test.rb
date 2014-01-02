@@ -28,7 +28,8 @@ class ValidatesUrlFormatOfTest < MiniTest::Unit::TestCase
       'https://example.com',
       'http://xn--rksmrgs-5wao1o.nu', # Punycode
       'http://example.com.', # Explicit TLD root period
-      'http://example.com./foo'
+      'http://example.com./foo',
+      'http://innsofaurora--com.rztrkr.com/accommodations/?rzreturn=1&rzsource=nc'
     ].each do |url|
       @model.homepage = url
       @model.save

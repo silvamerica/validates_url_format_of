@@ -6,7 +6,7 @@ module ValidatesUrlFormatOf
     \A
     https?://                                        # http:// or https://
     ([^\s:@]+:[^\s:@]*@)?                            # optional username:pw@
-    ( (xn--)?[a-z0-9]+([-.][a-z0-9]+)*\.[a-z]{2,6}\.? |  # domain (including Punycode/IDN)...
+    ( (xn--)?(\-|[a-z0-9])+([-.][a-z0-9]+)*\.[a-z]{2,6}\.? |  # domain (including Punycode/IDN)...
         #{IPv4_PART}(\.#{IPv4_PART}){3} )            # or IPv4
     (:\d{1,5})?                                      # optional port
     ([/?]\S*)?                                       # optional /whatever or ?whatever
