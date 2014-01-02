@@ -1,4 +1,4 @@
-Copyright (c) 2008 Erik-Michels-Ober, Henrik Nyh, Josh Nichols, Nicholas Silva.
+Copyright (c) 2008 Erik Michels-Ober, Henrik Nyh, Josh Nichols, Nicholas Silva.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,12 +1,11 @@
 require File.expand_path('../helper', __FILE__)
 
 class ValidatesUrlFormatOfTest < MiniTest::Unit::TestCase
-
   def setup
     @model = Model.new
   end
 
-  def test_should_allow_valid_urls
+  def test_should_allow_valid_urls # rubocop:disable MethodLength
     [
       'http://example.com',
       'http://example.com/',
@@ -37,20 +36,20 @@ class ValidatesUrlFormatOfTest < MiniTest::Unit::TestCase
     end
   end
 
-  def test_should_reject_invalid_urls
+  def test_should_reject_invalid_urls # rubocop:disable MethodLength
     [
-      nil, 1, "", " ", "url",
-      "www.example.com",
-      "http://ex ample.com",
-      "http://example.com/foo bar",
+      nil, 1, '', ' ', 'url',
+      'www.example.com',
+      'http://ex ample.com',
+      'http://example.com/foo bar',
       'http://256.0.0.1',
       'http://u:u:u@example.com',
       'http://r?ksmorgas.com',
 
       # These can all be valid local URLs, but should not be considered valid
       # for public consumption.
-      "http://example",
-      "http://example.c",
+      'http://example',
+      'http://example.c',
       'http://example.toolongtld'
     ].each do |url|
       @model.homepage = url
@@ -72,5 +71,4 @@ class ValidatesUrlFormatOfTest < MiniTest::Unit::TestCase
     @model.save
     assert_equal 'custom message', @model.errors[:custom_url].first
   end
-
 end
