@@ -1,41 +1,19 @@
-before_install:
-  - gem update bundler
-  - bundle --version
-  - gem update --system 2.1.11
-  - gem --version
+env:
+  global:
+    - JRUBY_OPTS="$JRUBY_OPTS --debug"
 language: ruby
 gemfile:
   - gemfiles/activesupport3.rb
   - gemfiles/activesupport4.rb
 rvm:
-  - 1.8.7
   - 1.9.3
   - 2.0.0
-  - 2.1.0
+  - 2.1
+  - jruby-19mode
+  - jruby-head
   - rbx
   - ruby-head
 matrix:
-  exclude:
-    - rvm: 1.8.7
-      gemfile: gemfiles/activesupport4.rb
-    - rvm: jruby-18mode
-      gemfile: gemfiles/activesupport4.rb
-  include:
-    - rvm: jruby-18mode
-      env: JRUBY_OPTS="$JRUBY_OPTS --debug"
-      gemfile: gemfiles/activesupport3.rb
-    - rvm: jruby-19mode
-      env: JRUBY_OPTS="$JRUBY_OPTS --debug"
-      gemfile: gemfiles/activesupport3.rb
-    - rvm: jruby-19mode
-      env: JRUBY_OPTS="$JRUBY_OPTS --debug"
-      gemfile: gemfiles/activesupport4.rb
-    - rvm: jruby-head
-      env: JRUBY_OPTS="$JRUBY_OPTS --debug"
-      gemfile: gemfiles/activesupport3.rb
-    - rvm: jruby-head
-      env: JRUBY_OPTS="$JRUBY_OPTS --debug"
-      gemfile: gemfiles/activesupport4.rb
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby-head

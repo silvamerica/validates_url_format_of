@@ -15,17 +15,10 @@ end
 group :test do
   gem 'backports'
   gem 'minitest'
-  gem 'rubocop', '>= 0.16', :platforms => [:ruby_19, :ruby_20, :ruby_21]
-  gem 'simplecov', :require => false
+  gem 'rubocop', '>= 0.24'
+  gem 'simplecov', '>= 0.9'
   gem 'sqlite3', :platforms => :ruby
   gem 'yardstick'
-end
-
-platforms :rbx do
-  gem 'racc'
-  gem 'rubinius-coverage', '~> 2.0'
-  gem 'rubysl', '~> 2.0'
-  gem 'rubysl-json', '~> 2.0'
 end
 
 gemspec :path => '../'
