@@ -21,8 +21,8 @@ end
 
 require 'yard'
 YARD::Rake::YardocTask.new do |task|
-  task.files   = %w[LICENSE.md lib/**/*.rb]
-  task.options = %w[--markup markdown]
+  task.files   = %w(LICENSE.md lib/**/*.rb)
+  task.options = %w(--markup markdown)
 end
 
 require 'yardstick/rake/measurement'

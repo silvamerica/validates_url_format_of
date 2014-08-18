@@ -13,7 +13,7 @@ end
 group :test do
   gem 'backports'
   gem 'minitest'
-  gem 'rubocop', '>= 0.24'
+  gem 'rubocop', '>= 0.25'
   gem 'simplecov', '>= 0.9'
   gem 'sqlite3', :platforms => :ruby
   gem 'yardstick'
