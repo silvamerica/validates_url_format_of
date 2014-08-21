@@ -19,3 +19,4 @@ matrix:
     - rvm: jruby-head
     - rvm: rbx
   fast_finish: true
+sudo: false
