@@ -4,9 +4,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Erik Michels-Ober', 'Henrik Nyh', 'Josh Nichols', 'Nicholas Silva']
   spec.description   = 'Rails plugin that provides a validates_url_format_of method to ActiveRecord models. URLs are validated by regexp.'
   spec.email         = %w(conickal@gmail.com)
-  spec.files         = %w(LICENSE.md README.md Gemfile Rakefile validates_url_format_of.gemspec)
-  spec.files        += Dir.glob('lib/**/*.rb')
-  spec.files        += Dir.glob('test/**/*')
+  spec.files         = %w(LICENSE.md README.md validates_url_format_of.gemspec) + Dir['lib/**/*.rb']
   spec.homepage      = 'http://github.com/conickal/validates_url_format_of'
   spec.licenses      = %w(MIT)
   spec.name          = 'validates_url_format_of'
@@ -14,6 +12,5 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 1.9.3'
   spec.required_rubygems_version = '>= 1.3.5'
   spec.summary       = 'ActiveRecord URL Validation'
-  spec.test_files    = Dir.glob('test/**/*')
   spec.version       = '0.4.1'
 end
