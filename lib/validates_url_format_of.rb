@@ -1,7 +1,7 @@
 require 'active_record'
 
 module ValidatesUrlFormatOf
-  IPV4_PART = /\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]/  # 0-255
+  IPV4_PART = /\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]/ # 0-255
   REGEXP = %r{
     \A
     https?://                                        # http:// or https://
