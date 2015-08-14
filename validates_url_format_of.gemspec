@@ -10,7 +10,6 @@ Gem::Specification.new do |spec|
   spec.name          = 'validates_url_format_of'
   spec.require_paths = %w(lib)
   spec.required_ruby_version = '>= 1.9.3'
-  spec.required_rubygems_version = '>= 1.3.5'
   spec.summary       = 'ActiveRecord URL Validation'
   spec.version       = '0.4.1'
 end
