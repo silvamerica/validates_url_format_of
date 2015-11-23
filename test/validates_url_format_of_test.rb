@@ -29,6 +29,8 @@ class ValidatesUrlFormatOfTest < MiniTest::Unit::TestCase
       'http://example.com.', # Explicit TLD root period
       'http://example.com./foo',
       'http://innsofaurora--com.rztrkr.com/accommodations/?rzreturn=1&rzsource=nc',
+      'http://father.christmas/',
+      'http://www.father.christmas/',
     ].each do |url|
       @model.homepage = url
       @model.save
@@ -50,7 +52,7 @@ class ValidatesUrlFormatOfTest < MiniTest::Unit::TestCase
       # for public consumption.
       'http://example',
       'http://example.c',
-      'http://example.toolongtld'
+      'http://example.waywaywaytoolongtld'
     ].each do |url|
       @model.homepage = url
       @model.save
